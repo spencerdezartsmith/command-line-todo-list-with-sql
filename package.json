@@ -1,0 +1,35 @@
+{
+  "name": "command-line-todo-list-with-sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha --reporter spec",
+    "start": "node src/run.js",
+    "db:drop": "dropdb todos",
+    "db:create": "createdb todos",
+    "db:schema": "psql -d todos < src/db/schema.sql",
+    "db:seed": "psql -d todos < src/db/seed.sql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencerdezartsmith/command-line-todo-list-with-sql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spencerdezartsmith/command-line-todo-list-with-sql/issues"
+  },
+  "homepage": "https://github.com/spencerdezartsmith/command-line-todo-list-with-sql#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "chai": "^4.1.0",
+    "pg-promise": "^6.3.5"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  }
+}
