@@ -16,8 +16,13 @@ const removeTodo = (id) => {
   return db.one('DELETE FROM todos WHERE id = $1 RETURNING task', [id])
 }
 
+const updateTodo = (id, newTask) => {
+  return db.one('UPDATE todos SET task = $1 WHERE id = $2 RETURNING task', [newTask, id])
+}
+
 module.exports = {
   getAllTodos,
   addNewTodo,
-  removeTodo
+  removeTodo,
+  updateTodo
 }
