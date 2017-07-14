@@ -1,23 +1,32 @@
-const { getAllTodos, addNewTodo, removeTodo } = require('./db/queries')
-const { print } = require('./helpers/print')
+const { getAllTodos, addNewTodo, removeTodo, updateTodo } = require('./db/queries')
+const { printList, printUsage } = require('./helpers/index')
 
-const list = () => {
+const list = (stream) => {
   getAllTodos()
-    .then(console.log)
+    .then(tasks => printList(stream, tasks))
 }
 
 const add = (task) => {
   addNewTodo(task)
     .then(result => console.log(`Created task ${result.id}`))
+    .catch(err => console.error(err.message))
 }
 
 const done = (id) => {
   removeTodo(id)
-    .then(console.log)
+    .then(result => console.log(`Completed the task ${result.task}`))
+    .catch(err => console.error(err.message))
+}
+
+const update = (id, newTask) => {
+  updateTodo(id, newTask)
+    .then(result => console.log(`You successfully updated task ${id} to ${result.task}`))
+    .catch(err => console.error(err.message))
 }
 
 module.exports = {
   list,
   add,
-  done
+  done,
+  update
 }
