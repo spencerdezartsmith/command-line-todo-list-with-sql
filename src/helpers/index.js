@@ -1,16 +1,16 @@
-const printList = (stream, items) => {
-  stream.log('ID Description')
-  stream.log('-- -----------')
+const printList = (items) => {
+  console.log('ID Description')
+  console.log('-- -----------')
   items.forEach(item => {
-    stream.log(`${item.id}  ${item.task}`)
+    console.log(`${item.id}  ${item.task}`)
   })
-
-  stream.log(`\n${items.length} tasks`)
+  console.log(`\n${items.length} tasks`)
+  process.exit(0)
 }
 
 const printUsage = () => {
   console.log(`
-    Sorry: command '${command}' not recognized :( \n
+    Sorry: command not recognized :( \n
     Accepted commands are:
     list
     add <task>
