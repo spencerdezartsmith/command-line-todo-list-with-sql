@@ -1,8 +1,10 @@
-const list = require('./commands/list')
-const add = require('./commands/add')
-const update = require('./commands/update')
-const done = require('./commands/done')
-const { printUsage } = require('./helpers/index')
+#!/usr/local/bin/node
+
+const list = require('./src/commands/list')
+const add = require('./src/commands/add')
+const update = require('./src/commands/update')
+const done = require('./src/commands/done')
+const { printUsage } = require('./src/helpers/index')
 
 const command = process.argv[2]
 const regularArgs = process.argv.slice(3).join(' ')
