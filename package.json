@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "NODE_ENV=test mocha --reporter spec",
+    "test": "export NODE_ENV=test && dropdb todos_test; createdb todos_test; psql -d todos_test < src/db/schema.sql; psql -d todos_test < src/db/seed.sql && mocha --reporter spec",
     "start": "node src/run.js",
     "db:drop": "dropdb todos",
     "db:create": "createdb todos",
