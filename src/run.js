@@ -1,4 +1,8 @@
-const { list, add, done, update } = require('./commands')
+const list = require('./commands/list')
+const add = require('./commands/add')
+const update = require('./commands/update')
+const done = require('./commands/done')
+const { printUsage } = require('./helpers/index')
 
 const command = process.argv[2]
 const regularArgs = process.argv.slice(3).join(' ')
@@ -10,16 +14,15 @@ switch(command) {
     list(console)
     break
   case 'add':
-    add(args)
+    add(regularArgs)
     break
   case 'done':
-    done(args)
+    done(regularArgs)
     break
   case 'update':
     update(updateID, updateArgs)
     break
   default:
     printUsage()
-    process.exit(1)
     break
 }
