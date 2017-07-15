@@ -2,8 +2,3 @@ CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
   task VARCHAR(255) NOT NULL
 );
-
-CREATE TABLE todos_test (
-  id SERIAL PRIMARY KEY,
-  task VARCHAR(255) NOT NULL
-)
