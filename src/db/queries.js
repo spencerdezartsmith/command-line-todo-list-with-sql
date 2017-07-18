@@ -5,7 +5,7 @@ const config = require('./config')
 const pgp = require('pg-promise')(options)
 const connectionString = config.selectENV(process.env.NODE_ENV)
 const db = pgp(connectionString)
-console.log(connectionString)
+console.log(connectionString) // <-- leftover debug statement?
 
 const getAllTodos = () => { return db.any('SELECT * FROM todos') }
 

@@ -9,7 +9,8 @@
   "scripts": {
     "test": "export NODE_ENV=test && dropdb todos_test; createdb todos_test; psql -d todos_test < src/db/schema.sql; psql -d todos_test < src/db/seed.sql && mocha --reporter spec",
     "start": "node src/run.js",
-    "db:setup": "dropdb todos; createdb todos; psql -d todos < src/db/schema.sql; psql -d todos < src/db/seed.sql",
+    "//": "the comma on the following line was invalid on javascript and is causing errors",
+    "db:setup": "dropdb todos; createdb todos; psql -d todos < src/db/schema.sql; psql -d todos < src/db/seed.sql"
   },
   "repository": {
     "type": "git",
